@@ -34,71 +34,34 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-step-1 Go to quartus software.
-
-step-2 Set new environment.
-
-step-3 Type the code to implement SR flipflop using verilog and validating their functionality using their functional tables.
-
-step-4 Run the program.
-
-step-5 Give inputs in the waveform table .
-
-step-6 Run the program.
-
+/* write all the steps invloved */
 
 **PROGRAM**
-```
-Program for flipflops and verify its truth table in quartus using Verilog programming.
-Developed by: Irshath Ahamed N
-RegisterNumber:24900836
-```
-```verilog
-module JKFLIPFLOP(q, qb,j,k,clock,reset);
-    input j,k,clock,reset;
-    output reg q, qb;
-	 
-always @ (posedge (clock))
 
-    begin 
-        if (!reset)
-            begin
-               q <= q;
-               qb <=qb;
-            end   
-        
-else
-   begin
-	   if(j==0 && k==0)
-		   begin
-			q<=q;
-			qb<=qb;
-			end
-		else if(j!=k)
-		   begin
-			q<=j;
-			qb<=k;
-			end
-		else if(j==1 && k==1)
-		    begin
-			 q<=~q;
-			 qb<=~qb;
-			 end
-	end
-end	
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by:N Irshath Ahamed RegisterNumber:24900836
+*/
+~~~
+module experiment7(J,K,c1k,q,qbar);
+input J,K,c1k;
+output reg q;
+output reg qbar;
+initial q=0;
+initial qbar=1;
+always @(posedge c1k)
+begin
+q=((J&(~q)))|((~K)&q);
+qbar=~q;
+end
 endmodule
-```
+~~~
 
 **RTL LOGIC FOR FLIPFLOPS**
-
-![image](https://github.com/23004513/JKFLIPFLOP-USING-IF-ELSE/assets/138973069/48cc0eb5-e90d-45bd-bb4e-000dcf05a796)
+![WhatsApp Image 2024-12-03 at 07 47 34_0cb9149e](https://github.com/user-attachments/assets/9c956db7-311e-4814-a1e3-b40250608cd3)
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
-
-![image](https://github.com/23004513/JKFLIPFLOP-USING-IF-ELSE/assets/138973069/d4b06ea5-ea16-4979-8e0c-56e0bf0706b1)
+![WhatsApp Image 2024-12-03 at 07 48 02_ce3aa850](https://github.com/user-attachments/assets/8f625b9b-4da3-4a7e-b4f0-a6f496e2c8f8)
 
 
 **RESULTS**
-
-Thus,the code executed successfully.
+Thus the JK flipflop implemented successfully and truth table has verified
